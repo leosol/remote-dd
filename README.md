@@ -34,7 +34,7 @@ options:
 ```
 
 ### Download EXE
-[download](https://github.com/leosol/py-remote-dd/dist/py-remote-dd.exe)
+[download](https://github.com/leosol/py-remote-dd/blob/main/dist/py-remote-dd.exe)
 
 
 ### Installation
