@@ -34,6 +34,11 @@ options:
 ```
 
 ### Download EXE
+
+Pre-built version under dist folder.
+
+Check instructions below for building it yourself
+
 [download](https://github.com/leosol/py-remote-dd/blob/main/dist/py-remote-dd.exe)
 
 
