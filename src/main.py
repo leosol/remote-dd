@@ -3,7 +3,7 @@ import logging
 import utils
 from engine import PyRemoteDDServer, PyRemoteDDClient
 
-DEFAULT_PORT = 9191
+DEFAULT_PORT = "9191"
 DEFAULT_BLOCK_SIZE = 4096*1024
 
 
@@ -52,7 +52,7 @@ def main():
     client_mode = opts.client_mode
     listen = opts.listen
     ip = opts.connect_ip
-    port = opts.connect_port
+    port = int(opts.connect_port)
     input_file = opts.input_file
     output_file = opts.output_file
     block_size = opts.block_size
