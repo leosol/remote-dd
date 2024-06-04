@@ -63,6 +63,11 @@ py-remote-dd.exe --debug --server -ip 10.1.1.101 -k MySecretPasswd -if \\.\Physi
 py-remote-dd.exe --debug --client --listen -k MySecretPasswd -of .\Evidence.dd
 ```
 
+### Network Errors and Retries
+- If output file already exists, a seek will be performed to the size of the acquired data
+- This means that on the next run, will continue from the last block just read
+- To start a new RAW disk access, choose a non existing file or a zero size file
+
 ### Download EXE
 
 Pre-built version under dist folder.
