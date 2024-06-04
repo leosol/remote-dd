@@ -1,4 +1,4 @@
-# PY-REMOTE-DD
+# REMOTE-DD - efective remote RAW disk access
 ### Provide remote dd functionality over internet to remote sites
 
 Creates a remote disk copy using python to a TCP destination protected by a password. 
