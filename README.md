@@ -33,6 +33,36 @@ options:
   py-remote-dd.exe -of I:\Temp\file.dd --client -k passwd123 -c 192.168.200.1 --debug
 ```
 
+### DIRECT CONNECTION (No NAT)
+
+- The provider of the RAW disk access will listen to connections. 
+- Validate the password and provide RAW access via network.
+
+```bash
+# on server
+py-remote-dd.exe --debug --server --listen -k MySecretPasswd -if \\.\PhysicalDrive0 
+```
+
+```bash
+# on client
+py-remote-dd.exe --debug --client -c 192.168.200.1 -k MySecretPasswd -of .\Evidence.dd
+```
+
+### REVERSE CONNECTION (With NAT)
+
+- The provider of the RAW disk access is under NAT and can't receive connections
+- It will connect to the remote client, validate password and provide RAW access.
+
+```bash
+# on server
+py-remote-dd.exe --debug --server -ip 10.1.1.101 -k MySecretPasswd -if \\.\PhysicalDrive0 
+```
+
+```bash
+# on client
+py-remote-dd.exe --debug --client --listen -k MySecretPasswd -of .\Evidence.dd
+```
+
 ### Download EXE
 
 Pre-built version under dist folder.
