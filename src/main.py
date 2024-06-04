@@ -1,11 +1,19 @@
 import argparse
 import logging
 import utils
+import signal
+import sys
 from engine import PyRemoteDDServer, PyRemoteDDClient
 
 DEFAULT_PORT = "9191"
 DEFAULT_BLOCK_SIZE = 4096*1024
 
+
+def signal_handler(signal, frame):
+    print('You pressed Ctrl+C! Exiting gracefully.')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Start PyRemoteDD to Dump Physical Drives to a destination",
@@ -63,7 +71,7 @@ def main():
 
     if not server_mode and not client_mode:
         print("You must set which mode to run: --server to read data from disk / --client to write received data")
-        exit(-1)
+        sys.exit(0)
 
     if server_mode:
         if listen:

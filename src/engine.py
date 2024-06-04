@@ -115,7 +115,7 @@ class PyRemoteDDClient(PyRemoteParty):
         already_recv_bytes = get_file_size(self.output_file)
         self.logger.info(f"Already received {already_recv_bytes}")
         self.logger.info("Preparing for data download")
-        self.socket.sendall(str(already_recv_bytes).encode('utf-8'))
+        self.send_data(str(already_recv_bytes).encode('utf-8'))
         count = 0
         with open(self.output_file, 'ab') as fp:
             while True:
