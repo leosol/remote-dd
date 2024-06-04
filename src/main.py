@@ -30,6 +30,8 @@ def parse_args():
 
     parser.add_argument("-c", action="store", dest="connect_ip", required=False,
                         help="The IP address to connect to.")
+    parser.add_argument("-ip", action="store", dest="connect_ip", required=False,
+                        help="The IP to bind to or the IP address to connect to")
     parser.add_argument("-p", action="store", dest="connect_port", required=False,
                         default=DEFAULT_PORT,
                         help="The TCP port to connect to.")
