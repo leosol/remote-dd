@@ -1,7 +1,7 @@
 # REMOTE-DD - efective remote RAW disk access
 ### Provide remote dd functionality over internet to remote sites
 
-Creates a remote disk copy using python to a TCP destination protected by a password. 
+Creates a remote disk copy to a TCP destination protected by a password. 
 
 *Alert*: it does not use SSL (yet)
 
@@ -10,7 +10,7 @@ usage: remote-dd.exe [-h] [--debug] [--server] [--client] [--listen] [-c CONNECT
                         [-k PASSWORD] [-if INPUT_FILE] [-of OUTPUT_FILE] [-bs BLOCK_SIZE] [-skip SKIP_BLOCKS]
                         [-count COUNT]
 
-Start PyRemoteDD to Dump Physical Drives to a destination
+Start RemoteDD to Dump Physical Drives to a destination
 
 options:
   -h, --help         show this help message and exit
@@ -30,7 +30,7 @@ options:
   # RAW disk access via SERVER MODE
   main -if \\.\PhysicalDrive7 --listen --server -k passwd123 --debug
   # RAW disk access on the client via CLIENT MODE
-  py-remote-dd.exe -of I:\Temp\file.dd --client -k passwd123 -c 192.168.200.1 --debug
+  remote-dd.exe -of I:\Temp\file.dd --client -k passwd123 -c 192.168.200.1 --debug
 ```
 
 ### DIRECT CONNECTION (No NAT)
@@ -40,12 +40,12 @@ options:
 
 ```bash
 # on server
-py-remote-dd.exe --debug --server --listen -k MySecretPasswd -if \\.\PhysicalDrive0 
+remote-dd.exe --debug --server --listen -k MySecretPasswd -if \\.\PhysicalDrive0 
 ```
 
 ```bash
 # on client
-py-remote-dd.exe --debug --client -c 192.168.200.1 -k MySecretPasswd -of .\Evidence.dd
+remote-dd.exe --debug --client -c 192.168.200.1 -k MySecretPasswd -of .\Evidence.dd
 ```
 
 ### REVERSE CONNECTION (With NAT)
@@ -55,12 +55,12 @@ py-remote-dd.exe --debug --client -c 192.168.200.1 -k MySecretPasswd -of .\Evide
 
 ```bash
 # on server
-py-remote-dd.exe --debug --server -ip 10.1.1.101 -k MySecretPasswd -if \\.\PhysicalDrive0 
+remote-dd.exe --debug --server -ip 10.1.1.101 -k MySecretPasswd -if \\.\PhysicalDrive0 
 ```
 
 ```bash
 # on client
-py-remote-dd.exe --debug --client --listen -k MySecretPasswd -of .\Evidence.dd
+remote-dd.exe --debug --client --listen -k MySecretPasswd -of .\Evidence.dd
 ```
 
 ### Network Errors and Retries
@@ -74,18 +74,18 @@ Pre-built version under dist folder.
 
 Check instructions below for building it yourself
 
-[download](https://github.com/leosol/py-remote-dd/blob/main/dist/py-remote-dd.exe)
+[download](https://github.com/leosol/remote-dd/blob/main/dist/remote-dd.exe)
 
 
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/leosol/py-remote-dd
+git clone https://github.com/leosol/remote-dd
 ```
 
 ### Create EXE Yourself
 ```bash
-cd py-remote-dd
+cd remote-dd
 cd src
 pip install pyinstaller
 pyinstaller -F main.py
