@@ -6,7 +6,7 @@ Creates a remote disk copy using python to a TCP destination protected by a pass
 *Alert*: it does not use SSL (yet)
 
 ```
-usage: py-remote-dd.exe [-h] [--debug] [--server] [--client] [--listen] [-c CONNECT_IP] [-p CONNECT_PORT]
+usage: remote-dd.exe [-h] [--debug] [--server] [--client] [--listen] [-c CONNECT_IP] [-p CONNECT_PORT]
                         [-k PASSWORD] [-if INPUT_FILE] [-of OUTPUT_FILE] [-bs BLOCK_SIZE] [-skip SKIP_BLOCKS]
                         [-count COUNT]
 
